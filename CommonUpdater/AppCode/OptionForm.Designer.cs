@@ -1,6 +1,6 @@
 ﻿namespace CommonUpdater
 {
-  partial class MainForm
+  partial class OptionForm
   {
     /// <summary>
     /// 필수 디자이너 변수입니다.
@@ -181,6 +181,8 @@
       this.Controls.Add(this.TB_AddCommonFolder);
       this.Name = "MainForm";
       this.Text = "CommonObserver";
+      this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
+      this.Load += new System.EventHandler(this.MainForm_Load);
       this.ResumeLayout(false);
       this.PerformLayout();
 

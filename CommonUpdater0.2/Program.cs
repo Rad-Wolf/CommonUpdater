@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CommonUpdater
@@ -13,7 +16,7 @@ namespace CommonUpdater
     {
       Application.EnableVisualStyles( );
       Application.SetCompatibleTextRenderingDefault( false );
-      Application.Run( new OptionForm( ) );
+      Application.Run( new AppCode.Forms.TrayForm( ) );
     }
   }
 }

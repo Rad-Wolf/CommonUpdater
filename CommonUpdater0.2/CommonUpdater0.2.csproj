@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8FF1364C-2A2E-4226-9B52-D8389B5CEFC8}</ProjectGuid>
+    <ProjectGuid>{24E378ED-1A3A-4FC7-92B3-061A3A5CB124}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>CommonUpdater</RootNamespace>
-    <AssemblyName>CommonUpdater</AssemblyName>
+    <RootNamespace>CommonUpdater0._2</RootNamespace>
+    <AssemblyName>CommonUpdater0.2</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -47,20 +47,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppCode\CommonManager.cs" />
-    <Compile Include="AppCode\MainManager.cs" />
-    <Compile Include="Common\BasicSingleton.cs" />
-    <Compile Include="Common\INI.cs" />
-    <Compile Include="AppCode\MainForm.cs">
+    <Compile Include="AppCode\CommonManager_.cs" />
+    <Compile Include="AppCode\Forms\OptionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AppCode\MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <Compile Include="AppCode\Forms\OptionForm.Designer.cs">
+      <DependentUpon>OptionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AppCode\Forms\TrayForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppCode\Forms\TrayForm.Designer.cs">
+      <DependentUpon>TrayForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\BasicSingleton.cs" />
+    <Compile Include="Common\INI.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AppCode\MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

@@ -1,32 +1,31 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CommonUpdater
 {
-  public partial class MainForm : Form
+  public partial class OptionForm : Form
   {
-    public MainForm ( )
+    public OptionForm ( )
     {
       InitializeComponent( );
     }
 
+    private string DragPath;
 
-    string DragPath;
     // AllowDrop = true 상태가 되야 드롭이 활성화됨
     // 드롭을 하면
     private void TB_AddCommonFolder_DragDrop ( object sender, DragEventArgs e ) => TB_AddCommonFolder.Text = DragPath;
+
     private void TB_MainCommonFolder_DragDrop ( object sender, DragEventArgs e ) => TB_MainCommonFolder.Text = DragPath;
+
     //드래그 상태에서 들어오면
     private void TB_AddCommonFolder_DragEnter ( object sender, DragEventArgs e ) => DragEnterFuncion( ref sender, ref e );
+
     private void TB_MainCommonFolder_DragEnter ( object sender, DragEventArgs e ) => DragEnterFuncion( ref sender, ref e );
+
     #region DragEnterFuncion
+
     //중복된것을 하나로
     //1개
     private void DragEnterFuncion ( ref object sender, ref DragEventArgs e )
@@ -39,6 +38,7 @@ namespace CommonUpdater
       }
       else e.Effect = DragDropEffects.None;
     }
+
     #endregion DragEnterFuncion
 
     private void BT_AddList_Click ( object sender, EventArgs e )
@@ -63,7 +63,6 @@ namespace CommonUpdater
 
     private void BT_View_Click ( object sender, EventArgs e ) => System.Diagnostics.Process.Start( CommonManager.Instant.TargetFolderList [ LBox_MainName.SelectedIndex ].MainFolderPath );
 
-
     private void BT_Refresh_Click ( object sender, EventArgs e )
     {
       CommonManager.Instant.ListSort( );
@@ -74,16 +73,23 @@ namespace CommonUpdater
       }
     }
 
-
     private void LBox_MainName_SelectedIndexChanged ( object sender, EventArgs e )
     {
       LBox_Objectname.Items.Clear( );
 
-      if ( CommonManager.Instant.TargetFolderList.Count is 0 ) return;
+      if ( CommonManager.Instant.TargetFolderList.Count <= 0 || LBox_MainName.SelectedIndex <= -1 ) return;
 
       CommonFileInfo item = CommonManager.Instant.TargetFolderList [ LBox_MainName.SelectedIndex ];
       foreach ( var obj in item.CommonFilePath )
         LBox_Objectname.Items.Add( obj.Split( '\\' ).Last( ) );
+    }
+
+    private void MainForm_Load ( object sender, EventArgs e )
+    {
+    }
+
+    private void MainForm_FormClosing ( object sender, FormClosingEventArgs e )
+    {
     }
   }
 }
