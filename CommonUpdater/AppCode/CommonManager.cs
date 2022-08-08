@@ -6,7 +6,7 @@ using System.Linq;
 using Common;
 namespace CommonUpdater
 {
-  public struct CommonFileInfo : IComparable<CommonFileInfo>
+  public struct CommonFileInfo : IComparable<CommonFileInfo>, IEquatable<CommonFileInfo>
   {
     public string MainFolderPath;
     public string MainFolderName { get { return MainFolderPath.Split( '\\' ).Last( ); } }
